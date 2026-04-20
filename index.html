@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Content System</title>
+
+<style>
+body{
+margin:0;
+padding:0;
+font-family:Arial;
+background:#111;
+color:#fff;
+text-align:center;
+}
+
+.box{
+max-width:500px;
+margin:auto;
+padding:20px;
+margin-top:30px;
+background:#1c1c1c;
+border-radius:15px;
+box-shadow:0 0 15px rgba(255,255,255,0.08);
+}
+
+h1{
+font-size:28px;
+}
+
+select,button,textarea{
+width:100%;
+padding:12px;
+margin-top:12px;
+border:none;
+border-radius:10px;
+font-size:16px;
+}
+
+select,textarea{
+background:#2a2a2a;
+color:white;
+}
+
+button{
+background:#00c853;
+color:white;
+font-weight:bold;
+}
+
+textarea{
+height:220px;
+resize:none;
+}
+
+.small{
+font-size:12px;
+color:#aaa;
+margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h1>🔥 Content System</h1>
+
+<select id="type">
+<option value="motivation">Motivation</option>
+<option value="story">Emotional Story</option>
+<option value="kids">Kids Story</option>
+<option value="facts">Facts</option>
+<option value="quotes">Quotes</option>
+</select>
+
+<button onclick="generate()">🚀 Generate</button>
+
+<textarea id="output" placeholder="Your content will appear here..."></textarea>
+
+<button onclick="copyText()">📋 Copy</button>
+<button onclick="share()">📲 WhatsApp</button>
+
+<p class="small">Powered by Pankaj Empire 😈</p>
+</div>
+
+<script>
+function generate(){
+let type=document.getElementById("type").value;
+let out=document.getElementById("output");
+
+if(type=="motivation"){
+out.value="जिसे लोग हार मान बैठे थे, उसने वहीँ से जीत शुरू की। कभी खुद पर शक मत करो।";
+}
+else if(type=="story"){
+out.value="एक गरीब बच्चा रोज भूखा सोता था। एक दिन उसने किसी की जान बचाई। अगले दिन पूरा शहर उसके साथ था।";
+}
+else if(type=="kids"){
+out.value="पांडा और डॉगी सड़क पार कर रहे थे। पहले दोनों ने दाएं-बाएं देखा। सीख: सड़क ध्यान से पार करो।";
+}
+else if(type=="facts"){
+out.value="इंसान की नाक 1 ट्रिलियन से ज्यादा खुशबू पहचान सकती है!";
+}
+else{
+out.value="सपने वो नहीं जो सोते समय आते हैं, सपने वो हैं जो आपको सोने नहीं देते।";
+}
+}
+
+function copyText(){
+let copy=document.getElementById("output");
+copy.select();
+document.execCommand("copy");
+alert("Copied!");
+}
+
+function share(){
+let text=document.getElementById("output").value;
+window.open("https://wa.me/?text="+encodeURIComponent(text));
+}
+</script>
+
+</body>
+</html>
